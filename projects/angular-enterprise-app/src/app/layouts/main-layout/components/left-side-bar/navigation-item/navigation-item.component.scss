@@ -1,0 +1,20 @@
+::ng-deep {
+
+    .mat-mdc-menu-panel {
+        min-width: 300px !important;
+    }
+
+    .icon:hover .icon:active {
+        color: white;
+        fill: white;
+    }
+    .icon {
+        width: auto !important;
+        height: 24px !important;
+    }
+    .active {
+        background: var(--primary-color) !important;
+        color: var(--accent-color) !important;
+        border-radius: 6px;
+    }
+}

@@ -1,0 +1,50 @@
+<button mat-icon-button [matMenuTriggerFor]="settings" #menuTrigger>            
+    <mat-icon class="cursor-pointer icon" svgIcon="settings-dots"></mat-icon>    
+</button>
+<mat-menu #settings="matMenu" [dir]="(pageDirection$ | async) || 'ltr'">
+    <button mat-menu-item [matMenuTriggerFor]="languages">
+        <mat-icon class="menu-item-icon" svgIcon="language"> </mat-icon>
+        <span translate> core.header-settings.language </span>
+    </button>
+    <hr>
+
+    <button mat-menu-item [matMenuTriggerFor]="help">
+        <mat-icon class="menu-item-icon" svgIcon="help"> </mat-icon>
+        <span translate> core.header-settings.help </span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon class="menu-item-icon" svgIcon="settings"> </mat-icon>
+        <span translate> core.header-settings.settings </span>
+        
+    </button>
+    <button mat-menu-item> 
+        <mat-icon class="menu-item-icon" svgIcon="exit"> </mat-icon>
+        <span translate> core.header-settings.exit </span>
+    </button>
+</mat-menu>
+
+<mat-menu #languages="matMenu" xPosition="before" [dir]="(pageDirection$ | async) || 'ltr'">
+    <button mat-menu-item (click)='changeLanguage("ar", "rtl")'>
+        <mat-icon class="menu-item-icon" svgIcon="palestine"> </mat-icon>
+        <span translate> core.header-settings.arabic </span>
+    </button>
+    <button mat-menu-item (click)='changeLanguage("en", "ltr")'>
+        <mat-icon class="menu-item-icon" svgIcon="united-states"> </mat-icon>
+        <span translate> core.header-settings.english </span>
+    </button>
+</mat-menu>
+
+<mat-menu #help="matMenu" xPosition="before" [dir]="(pageDirection$ | async) || 'ltr'">
+    <button mat-menu-item>
+        <mat-icon class="menu-item-icon" svgIcon="faq"> </mat-icon>
+        <span translate> core.header-settings.faq </span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon class="menu-item-icon" svgIcon="whats-new"></mat-icon>
+        <span translate> core.header-settings.whats-new </span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon class="menu-item-icon" svgIcon="help"> </mat-icon>
+        <span translate> core.header-settings.help-center </span>
+    </button>
+</mat-menu>

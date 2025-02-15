@@ -1,0 +1,31 @@
+<button mat-icon-button [matMenuTriggerFor]="userProfile" #menuTrigger>            
+    <mat-icon class="cursor-pointer icon" svgIcon="user-profile"></mat-icon>
+</button>
+<mat-menu #userProfile="matMenu" xPosition="before" [dir]="(pageDirection$ | async) || 'ltr'" class="min-h-36">
+    <div class="min-h-24 w-full h-full flex relative justify-center items-center">
+        <div class="min-h-24 bg-primary w-full h-full items-center content-center gap-2 px-2 pt-8">
+            <div class="text-accent w-full text-center"> 
+                <span class="text-accent text-base">User Profile</span>
+            </div>  
+            <div class="text-accent w-full items-end flex justify-end"> 
+                <button mat-icon-button>
+                    <mat-icon class="cursor-pointer" svgIcon="edit"></mat-icon>
+                </button>    
+            </div>  
+        </div>
+        <div class="absolute h-16 w-16 rounded-full -bottom-7 border-accent border-solid border-2 flex justify-center items-center bg-white">
+            <!-- <mat-icon class="cursor-pointer icon" svgIcon="user-profile"></mat-icon> -->
+            <img  src="assets/imgs/profile-picture.png" class="h-16 w-16 rounded-full p-1"/>
+        </div>
+    </div>
+    <div class="min-h-24 w-full flex pt-8 flex-col justify-center content-center text-center text-primary py-2">
+        <div class="flex w-full flex-col justify-center content-center text-center pb-4 pt-2">
+            <span> Amin Atwi </span>
+            <span> aminatwioutlook.com </span>
+        </div>
+        <hr class="py-2">
+        <div class="flex flex-col items-start content-start text-primary px-4">
+            <span>Other Settings</span>
+        </div>
+    </div>
+</mat-menu>

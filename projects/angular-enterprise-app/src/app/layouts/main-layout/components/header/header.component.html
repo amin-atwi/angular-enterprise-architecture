@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex justify-center items-center gap-4">
+            <button mat-icon-button class="custom-icon-size cursor-pointer primary-color" (click)="toggleLeftSideBar()">
+                <mat-icon svgIcon="menu"></mat-icon>
+            </button>
+        </div>
+        <app-breadcrumbs class="mx-8"></app-breadcrumbs>
+        <span class="spacer"></span>
+        <div class="flex items-center">
+            <app-user-profile></app-user-profile>
+            <app-settings> </app-settings>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,15 @@
+@use '../public/assets/styles/core.scss';
+@use '../public/assets/styles/theme.scss';
+@use '../public/assets/styles/tailwind.scss';
+
+html, body { height: 100%; }
+
+:root {
+    --light-primary-color: #eff3f5;
+    --primary-color: #344955;
+    --accent-color: #F9AA33;
+    --success-color: #199E52;
+    --warn-color: #FE0000;
+    --mdc-dialog-subhead-color: #64C5D5;
+    --mat-menu-item-icon-color: #707070;
+}

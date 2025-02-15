@@ -1,0 +1,34 @@
+{
+    "core": {
+        "title": "Enterprise Architecture",
+        "toolbar": {
+            "logout": "تسجيل الخروج",
+            "language": "اللغة"
+        },
+        "footer": {},
+        "left-side-bar": {
+            "coming-soon": "قريباً"
+        },
+        "header-settings": {
+            "language": "اللغة",
+            "help": "المساعدة",
+            "settings": "الإعدادات",
+            "exit": "خروج",
+            "arabic": "العربية",
+            "english": "الإنجليزية",
+            "faq": "الأسئلة الشائعة",
+            "whats-new": "ما الجديد",
+            "help-center": "مركز المساعدة"
+        }
+    },
+    "validation": {
+        "required": "هذه الخانة مطلوبه",
+        "nonEmptyString": "هذه الخانة مطلوبه",
+        "invalidEmailError": "الرجاء إدخال عنوان بريد إلكتروني صالح.",
+        "invalidDateError": "الرجاء إدخال تاريخ صالح.",
+        "invalidSearchTerm": "الرجاء إدخال مصطلح بحث صالح.",
+        "regularExpression": "الرجاء إدخال قيمة صالحة.",
+        "maxlength": "الرجاء إدخال قيمة لا تزيد عن {{requiredLength}} حرفاً. ({{actualLength}}/{{requiredLength}})",
+        "minlength": "الرجاء إدخال قيمة لا تقل عن {{requiredLength}} حرفاً. ({{actualLength}}/{{requiredLength}})"
+    }
+}

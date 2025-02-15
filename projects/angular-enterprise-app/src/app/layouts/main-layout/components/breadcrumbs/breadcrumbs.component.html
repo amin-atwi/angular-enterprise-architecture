@@ -1,0 +1,13 @@
+<div class="flex flex-row justify-start items-center gap-2 w-max">
+    @for ( crumb of routeCrumbsList?.crumbs; track crumb.translationKey;let i=$index) {
+    <div class="flex flex-row items-center 
+    font-medium text-neutral-800 text-[15px]">
+        <div (click)="onRouterChanged(crumb)" [ngClass]="getClasses(crumb,i)">
+            <span translate> {{crumb.translationKey}}</span>
+        </div>
+          @if(i !== (routeCrumbsList?.crumbs?.length || 0) -1){
+        <span>></span>
+    }
+    </div>
+    }
+</div>

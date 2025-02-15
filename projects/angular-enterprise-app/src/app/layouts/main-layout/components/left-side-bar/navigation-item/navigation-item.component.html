@@ -1,0 +1,48 @@
+@if(isLink(item)){
+    <a class="flex justify-center flex-col items-start w-full p-2 gap-4 text-lg
+            hover:bg-accent
+            hover:rounded-md
+            hover:text-primary cursor-pointer
+            focus:text-accent
+            focus:bg-accent text-primary
+            focus:rounded-md" (click)="onRouteChanged(item)" [routerLink]="item.route" routerLinkActive="active">
+        <div class="flex flex-row justify-start items-center gap-2">
+            <mat-icon class="cursor-pointer icon" svgIcon="{{item.icon}}"></mat-icon>
+            @if((isSideNavOpened$|async)) {
+            <div class="items-center justify-center cursor-pointer font-normal text-sm xxl:text-lg px-4">
+                <span translate>{{item.translationKey}}</span>
+            </div>
+            }
+        </div>
+    </a>
+}
+
+@if (isDropDown(item)) {
+    <div [ngClass]=" {'active': hasActiveChild(item)}"
+        class=" flex justify-center flex-col items-start w-full p-2 gap-4 text-lg
+                hover:bg-accent
+                hover:rounded-md
+                hover:text-primary cursor-pointer
+                focus:text-accent
+                focus:bg-accent text-primary
+                focus:rounded-md" [matMenuTriggerFor]="MatMenu">
+
+        <div class="flex flex-row justify-start items-center gap-2 cursor-pointer">
+            <mat-icon class="cursor-pointer icon" svgIcon="{{item.icon}}"></mat-icon>
+            @if((isSideNavOpened$|async)) {
+                <span class="font-normal text-sm xxl:text-lg" translate> {{ item.translationKey }} </span> 
+            }
+        </div>
+
+        <mat-menu #MatMenu="matMenu" xPosition="after">
+            @for ( subItem of item.subRouteItems; track subItem) {
+                <span mat-menu-item class="font-normal text-xs xxl:text-lg"
+                        tabindex="0"
+                        (keydown.enter)="onRouteChanged(subItem)"
+                        (click)="onRouteChanged(subItem)"> 
+                    <span translate> {{subItem.translationKey}} </span>
+                </span>
+            }
+        </mat-menu>
+    </div>
+}

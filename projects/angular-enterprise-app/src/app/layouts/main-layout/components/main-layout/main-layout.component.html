@@ -1,0 +1,22 @@
+
+<div class="flex flex-col w-screen h-screen">    
+    <app-header class="flex w-full"></app-header>
+    <mat-sidenav-container [dir]="pageDirection"  class="bg-white overflow-x-hidden">
+        <mat-sidenav  #sidenav mode="side" position="start" [opened]="(isLeftSideNavOpen$ | async)">
+            <app-left-side-bar></app-left-side-bar>        
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="p-4 xxl:p-8 bg-white h-full">
+                <div class="block h-[100%] overflow-x-hidden">
+                    <router-outlet></router-outlet>
+                </div>
+                @if(isSpinning$|async){
+                <div class="spinner overflow-hidden">
+                    <mat-spinner color="accent"></mat-spinner>
+                </div>
+                }
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>  
+

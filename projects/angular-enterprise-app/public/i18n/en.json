@@ -1,0 +1,24 @@
+{
+    "core": {
+        "title": "Enterprise Architecture",
+        "toolbar": {
+            "logout": "Logout",
+            "language": "Language"
+        },
+        "footer": {},
+        "left-side-bar": {
+            "coming-soon": "Coming Soon"
+        },
+        "header-settings": {
+            "language": "Language",
+            "help": "Help",
+            "settings": "Settings",
+            "exit": "Exit",
+            "arabic": "Arabic",
+            "english": "English",
+            "faq": "FAQ",
+            "whats-new": "What's New",
+            "help-center": "Help Center"
+        }
+    }
+}
