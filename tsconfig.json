@@ -3,6 +3,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@ui/*": [ "projects/ui/src/lib/*" ],
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -22,12 +26,7 @@
     "lib": [
       "ES2022",
       "dom"
-    ],
-    "paths": {
-      "ui": [
-        "./dist/ui"
-      ]
-    }
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

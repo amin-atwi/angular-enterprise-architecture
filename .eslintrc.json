@@ -1,0 +1,157 @@
+{
+    "root": true,
+    "ignorePatterns": [],
+    "parser": "@typescript-eslint/parser",
+    "overrides": [
+      {
+        "files": ["*.ts"],
+        "plugins": ["boundaries"],
+        "extends": [
+          "eslint:recommended",
+          "plugin:@typescript-eslint/recommended",
+          "plugin:@angular-eslint/recommended",
+          "plugin:@angular-eslint/template/process-inline-templates",
+          "plugin:boundaries/strict"
+        ],
+        "rules": {
+          "boundaries/element-types": [
+            "error",
+            {
+              "default": "disallow",
+              "rules": [
+                {
+                  "from": "app",
+                  "allow": [
+                    ["core", { "app": "${from.app}" }],
+                    ["app", { "app": "${from.app}" }],
+                    ["layouts", { "app": "${from.app}" }]
+                  ]
+                },
+                {
+                  "from": "main",
+                  "allow": [
+                    ["app", { "app": "${from.app}" }],
+                    ["core", { "app": "${from.app}" }]]
+                },
+                {
+                  "from": "core",
+                  "allow": [
+                    ["env", { "app": "${from.app}" }],
+                    ["core", { "app": "${from.app}" }],
+                    ["layouts", { "app": "${from.app}" }]
+                  ]
+                },
+                {
+                  "from": "layouts",
+                  "allow": [
+                    ["env", { "app": "${from.app}" }],
+                    ["core", { "app": "${from.app}" }]
+                  ]
+                },
+                // Special rule for routes files in 'layouts' folder - ALLOW 'features'
+                {
+                  "from": "layouts",
+                  "allow": [
+                    ["env", { "app": "${from.app}" }],
+                    ["core", { "app": "${from.app}" }],
+                    ["features", { "app": "${from.app}" }]
+                  ]
+                },
+                {
+                  "from": ["features"],
+                  "allow": [
+                    ["core", { "app": "${from.app}" }],
+                    ["layouts", { "app": "${from.app}" }],
+                    ["env", { "app": "${from.app}" }],
+                    ["cross-features", { "app": "${from.app}" }],
+                    ["public-api"]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "settings": {
+          "boundaries/debug": true,
+          "import/resolver": {
+            "typescript": {
+              "alwaysTryTypes": true,
+              "project": "./tsconfig.json"
+            }
+          },
+          "boundaries/ignore": [],
+          "boundaries/dependency-nodes": ["import", "dynamic-import"],
+          "boundaries/dependency-types": ["import", "require", "esm", "dynamic-import"],
+          "boundaries/elements": [
+            {
+              "type": "ui",
+              "pattern": "lib",
+              "basePattern": "projects/**/src",
+              "baseCapture": ["lib"]
+            },
+            {
+              "type": "public-api",
+              "mode": "file",
+              "pattern": "public-api.ts",
+              "basePattern": "projects/**/src"
+            },
+            {
+              "type": "env",
+              "pattern": "environments",
+              "basePattern": "projects/**/src",
+              "baseCapture": ["app"]
+            },
+            {
+              "type": "main",
+              "mode": "file",
+              "pattern": "main.ts",
+              "basePattern": "projects/**/src",
+              "baseCapture": ["app"]
+            },
+            {
+              "type": "app",
+              "mode": "file",
+              "pattern": "app(-|.)*.ts",
+              "basePattern": "projects/**/src/app",
+              "baseCapture": ["app"]
+            },
+            {
+              "type": "core",
+              "pattern": "core",
+              "basePattern": "projects/**/src/app",
+              "baseCapture": ["app"]
+            },
+            {
+              "type": "layouts",
+              "pattern": "layouts",
+              "basePattern": "projects/**/src/app",
+              "baseCapture": ["app"]
+            },
+            {
+              "type": "cross-features",
+              "pattern": "cross-features",
+              "capture": ["cross-features"],
+              "basePattern": "projects/**/src/app",
+              "baseCapture": ["app"]
+            },
+            {
+              "type": "features",
+              "pattern": "features/*",
+              "capture": ["features"],
+              "basePattern": "projects/**/src/app",
+              "baseCapture": ["app"]
+            }
+          ]
+        }
+      },
+      {
+        "files": ["*.html"],
+        "extends": [
+          "plugin:@angular-eslint/template/recommended",
+          "plugin:@angular-eslint/template/accessibility"
+        ],
+        "rules": {}
+      }
+    ]
+  }
+  
