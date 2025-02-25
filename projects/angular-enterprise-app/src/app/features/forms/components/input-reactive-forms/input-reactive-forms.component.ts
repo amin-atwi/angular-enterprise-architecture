@@ -4,11 +4,12 @@ import { InputTextComponent } from '../../../../../../../ui/src/public-api';
 import { AutomaticFormValidationModule } from '../../../../core/automatic-form-validation/automatic-form-validation.module';
 import { ApplicationRoutes } from '../../../../core/routes-path-definition/application-routes.enum';
 import { LayoutService } from '../../../../layouts/main-layout/services/layout.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input-reactive-forms',
   standalone: true,
-  imports: [ReactiveFormsModule, InputTextComponent, AutomaticFormValidationModule],
+  imports: [ReactiveFormsModule, TranslateModule, InputTextComponent, AutomaticFormValidationModule],
   templateUrl: './input-reactive-forms.component.html',
   styleUrl: './input-reactive-forms.component.scss'
 })
@@ -23,7 +24,7 @@ export class InputReactiveFormsComponent {
     this.layoutService.updateBreadCrumbsRouter({
       crumbs: [
         {
-          route: `${ApplicationRoutes.InputReactiveForms}`,
+          route: `${ApplicationRoutes.Forms}/${ApplicationRoutes.InputReactiveForms}`,
           translationKey: 'core.left-side-bar.input-reactive-forms',
         }
       ],
