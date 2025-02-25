@@ -6,6 +6,7 @@ import { ApplicationRoutes } from '../../../../core/routes-path-definition/appli
 import { LayoutService } from '../../../../layouts/main-layout/services/layout.service';
 import { TranslateModule } from '@ngx-translate/core';
 
+
 @Component({
   selector: 'app-input-reactive-forms',
   standalone: true,
