@@ -7,7 +7,9 @@
         },
         "footer": {},
         "left-side-bar": {
-            "coming-soon": "Coming Soon"
+            "coming-soon": "Coming Soon",
+            "forms": "Forms",
+            "input-reactive-forms": "Input Reactive Forms"
         },
         "header-settings": {
             "language": "Language",
@@ -20,5 +22,15 @@
             "whats-new": "What's New",
             "help-center": "Help Center"
         }
+    },
+    "validation": {
+        "required": "This field is required",
+        "nonEmptyString": "This field is required",
+        "invalidEmailError": "Please enter a valid email address",
+        "invalidDateError": "Please enter a valid date (ex: dd/mm/yyyy)",
+        "invalidSearchTerm": "Please select a valid option from the list.",
+        "regularExpression": "Please enter a valid value",
+        "maxlength": "Please enter a value with no more than {{requiredLength}} characters. ({{actualLength}}/{{requiredLength}})",
+        "minlength": "Please enter a value more than {{requiredLength}} characters. ({{actualLength}}/{{requiredLength}})"
     }
 }

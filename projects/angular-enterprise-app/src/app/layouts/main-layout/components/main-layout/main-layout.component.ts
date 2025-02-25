@@ -28,7 +28,7 @@ import { PageDirection } from '../../../../core/translation/enums/page-direction
     styleUrl: './main-layout.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainLayoutComponent implements OnInit{
+export class MainLayoutComponent implements OnInit {
 
   store = inject(Store)
   cdr = inject(ChangeDetectorRef)

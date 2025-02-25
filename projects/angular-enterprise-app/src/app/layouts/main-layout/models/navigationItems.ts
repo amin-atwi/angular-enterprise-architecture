@@ -11,5 +11,22 @@ export const navigationItems: Array<NavigationDropdown | NavigationLink> = [
         route: `${ApplicationRoutes.ComingSoon}`,
         translationKey: 'core.left-side-bar.coming-soon',
         permission: Permission.CanAccessComingSoon
-    }
+    }, 
+    {
+        type: 'dropdown',
+        icon: 'forms',
+        translationKey: 'core.left-side-bar.forms',
+        route: `${ApplicationRoutes.Forms}`,
+        permission: Permission.CanAccessForms,
+        sidenavLink: 'forms',
+        subRouteItems: [
+            {
+                icon: 'forms',
+                type: 'link',
+                translationKey: 'core.left-side-bar.input-reactive-forms',
+                route: `${ApplicationRoutes.InputReactiveForms}`,
+                permission: Permission.CanAccessInputReactiveForms
+            }
+        ]
+    } as NavigationDropdown
 ];

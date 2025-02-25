@@ -1,0 +1,23 @@
+input {
+  all: unset;
+}
+
+:host {
+  @apply flex flex-col h-fit w-fit;
+}
+
+.input {
+  @apply px-1 py-2 text-primary border-[2px] border-solid border-primary rounded-[0.4rem] w-[18rem];
+}
+
+:host.ng-valid.ng-dirty:not([formGroupName]):not([formArrayName]):not([ngModelGroup]):not(form) {
+  .input {
+    @apply border-[var(--success-color)];
+  }
+}
+
+:host.ng-invalid.ng-dirty:not([formArrayName]):not(form) {
+  .input {
+    @apply border-[var(--warn-color)];
+  }
+}
