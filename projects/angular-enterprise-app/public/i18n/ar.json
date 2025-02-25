@@ -32,5 +32,14 @@
         "regularExpression": "الرجاء إدخال قيمة صالحة.",
         "maxlength": "الرجاء إدخال قيمة لا تزيد عن {{requiredLength}} حرفاً. ({{actualLength}}/{{requiredLength}})",
         "minlength": "الرجاء إدخال قيمة لا تقل عن {{requiredLength}} حرفاً. ({{actualLength}}/{{requiredLength}})"
+    },
+    "forms": {
+        "input-reactive-forms": {
+            "first-name": "الاسم الأول*:",
+            "last-name": "اسم العائلة*:",
+            "email-address": "عنوان البريد الإلكتروني*:",
+            "fathers-name": "اسم الأب*:",
+            "mothers-name": "اسم الأم*:"
+        }
     }
 }
