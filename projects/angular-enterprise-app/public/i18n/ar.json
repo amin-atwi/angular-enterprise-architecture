@@ -7,7 +7,9 @@
         },
         "footer": {},
         "left-side-bar": {
-            "coming-soon": "قريباً"
+            "coming-soon": "قريباً",
+            "forms": "نماذج الإدخال",
+            "input-reactive-forms": "نماذج الإدخال التفاعلية"
         },
         "header-settings": {
             "language": "اللغة",

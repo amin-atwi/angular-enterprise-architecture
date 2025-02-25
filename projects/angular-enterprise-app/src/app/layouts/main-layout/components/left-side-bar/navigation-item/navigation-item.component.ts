@@ -15,7 +15,6 @@ import { ApplicationRoutes } from '../../../../../core/routes-path-definition/ap
     selector: 'app-navigation-item',
     templateUrl: './navigation-item.component.html',
     styleUrls: ['./navigation-item.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [
         RouterLinkActive,
@@ -52,26 +51,51 @@ export class NavigationItemComponent implements OnInit {
 
   hasActiveChild(parent: NavigationDropdown): boolean | undefined {
     return parent.subRouteItems?.some((child) => {
+  
       if (this.isDropDown(child)) {
         return this.hasActiveChild(child);
       }
-
+  
       if (this.isLink(child)) {
-        const urlTree = this.router.createUrlTree(['app', child.route]);
-        const routeIsActive = this.router.isActive(urlTree , {
-          matrixParams: 'subset',
+        // Ensure routePath is defined and clean
+        const routePath = child.route?.replace(/^\//, '') ?? ''; // Remove leading `/` if present
+        const pathSegments = routePath.split('/'); // Convert into an array of segments
+  
+        // Get the base route dynamically from the current URL
+        const currentUrlSegments = this.router.url.split('/').filter(Boolean); // Remove empty segments
+  
+        // Find index of the last matching segment in the current URL
+        let baseSegments: string[] = [];
+        for (let i = 0; i < currentUrlSegments.length; i++) {
+          if (routePath.startsWith(currentUrlSegments[i])) {
+            baseSegments = currentUrlSegments.slice(0, i);
+            break;
+          }
+        }
+  
+        // Construct the full route dynamically
+        const fullRoute = [...baseSegments, ...pathSegments];
+
+        // Generate URL tree
+        const urlTree = this.router.createUrlTree(fullRoute);
+  
+        // Check if route is active
+        const routeIsActive = this.router.isActive(urlTree, {
+          paths: 'subset', // Allow partial matching
+          matrixParams: 'ignored',
           queryParams: 'ignored',
-          paths: 'subset',
           fragment: 'ignored',
         });
+  
         return routeIsActive;
       }
       return false;
     });
   }
+  
 
-  onRouteChanged(item: NavigationLink) {
-    this.router.navigate([`${ApplicationRoutes.App}/${item.route}`]);
+  onRouteChanged(route?: string) {
+    this.router.navigate([`${ApplicationRoutes.App}/${route}`]);
   }
 
 }
