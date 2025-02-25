@@ -13,7 +13,6 @@ import { ErrorMessages, ValidationErrorMappingService } from './validation-messa
 })
 export class ErrorDynamicGeneratorService {
   ref: ComponentRef<ValidationMessageComponent> | undefined;
-  vcr: ViewContainerRef | undefined;
 
   constructor(
     private errorsValidator: ValidationErrorMappingService,
@@ -49,12 +48,9 @@ export class ErrorDynamicGeneratorService {
   displayError(vcr: ViewContainerRef, message?: string) {
     //Create a new component of ValidationMessageComponent
     if (this.ref === undefined) {
-      const factory = this.resolver.resolveComponentFactory(
-        ValidationMessageComponent
-      );
-      //If the optional container was empty, create the component within the wrapper   container
+      //If the optional container was empty, create the component within the wrapper container
       vcr.clear();
-      this.ref = vcr.createComponent(factory);
+      this.ref = vcr.createComponent(ValidationMessageComponent);
     }
     if(this.ref)
       this.ref.instance.text = message || "";
